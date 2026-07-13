@@ -2,6 +2,8 @@
 
 A hands-on AWS networking project: setting up two peered VPCs, generating traffic between EC2 instances, and using VPC Flow Logs + CloudWatch Logs Insights to monitor and troubleshoot connectivity.
 
+> This project follows a guided lab from [NextWork](https://nextwork.org). The architecture and steps came from their curriculum; the setup, troubleshooting, and write-up below are my own work.
+
 ## What this project demonstrates
 - Designing and connecting multi-VPC network architecture
 - Diagnosing and resolving real connectivity failures (not just following steps — actually troubleshooting when something broke)
@@ -48,7 +50,3 @@ This project reinforced how much of cloud networking troubleshooting comes down 
 
 ## Time to complete
 ~2.5 hours, including analysis and documentation.
-
----
-*Based on an AWS networking lab; architecture, troubleshooting, and write-up are my own.*
-
