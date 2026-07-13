@@ -25,17 +25,17 @@ Security groups on both instances allow SSH (for remote access) and ICMP (for co
 
 The first ping test between the two EC2 instances, using private IP addresses, got no replies. Testing with the public IP addresses instead worked fine, confirming that ICMP wasn't blocked at the security group level — the problem was upstream in routing.
 
-![Failed ping test](images/failed-ping-test.png)
+![Failed ping test](failed-ping-test.png)
 
 Checking the route table for VPC 1 showed the real issue: there was no route directing traffic from one VPC to the other. Private-IP traffic had nowhere to go.
 
 **Fix:** created a VPC peering connection between the two VPCs and added routes in both VPCs' route tables pointing to that peering connection.
 
-![Route table with peering route](images/route-table-fix.png)
+![Route table with peering route](route-table-fix.png)
 
 Re-running the ping test using private IPs returned replies — traffic was now flowing correctly over the peering connection.
 
-![Successful ping test](images/successful-ping-test.png)
+![Successful ping test](successful-ping-test.png)
 
 ## Analyzing the logs
 
